@@ -1,0 +1,226 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load skill_filters %}
+
+{% block title %}Skills - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1>My Skills</h1>
+            <p class="tagline">Technical expertise and professional capabilities</p>
+        </div>
+    </div>
+</section>
+
+<!-- Technical Skills Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                {% if technical_skills %}
+                    <div class="skill-category">
+                        <h3><i class="fas fa-code me-2"></i>Programming & Development</h3>
+                        <div class="row">
+                            {% for skill in technical_skills %}
+                                <div class="col-md-6 col-lg-4 mb-3">
+                                    <div class="skill-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="skill-name">{{ skill.name }}</span>
+                                            <span class="skill-level">
+                                                <i class="fas fa-star"></i>
+                                                {% for i in skill|skill_level_range %}
+                                                    <i class="fas fa-star text-warning"></i>
+                                                {% endfor %}
+                                                {% for i in skill|skill_level_remaining %}
+                                                    <i class="far fa-star text-muted"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">{{ skill.get_proficiency_level_display }}</small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center">
+                        <p>No technical skills added yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Professional Skills Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Professional Skills</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                {% if professional_skills %}
+                    <div class="skill-category">
+                        <h3><i class="fas fa-briefcase me-2"></i>Business & Professional</h3>
+                        <div class="row">
+                            {% for skill in professional_skills %}
+                                <div class="col-md-6 col-lg-4 mb-3">
+                                    <div class="skill-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="skill-name">{{ skill.name }}</span>
+                                            <span class="skill-level">
+                                                <i class="fas fa-star"></i>
+                                                {% for i in skill|skill_level_range %}
+                                                    <i class="fas fa-star text-warning"></i>
+                                                {% endfor %}
+                                                {% for i in skill|skill_level_remaining %}
+                                                    <i class="far fa-star text-muted"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">{{ skill.get_proficiency_level_display }}</small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center">
+                        <p>No professional skills added yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Soft Skills Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="row">
+            <div class="col-lg-12">
+                {% if soft_skills %}
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users me-2"></i>Interpersonal & Communication</h3>
+                        <div class="row">
+                            {% for skill in soft_skills %}
+                                <div class="col-md-6 col-lg-4 mb-3">
+                                    <div class="skill-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="skill-name">{{ skill.name }}</span>
+                                            <span class="skill-level">
+                                                <i class="fas fa-star"></i>
+                                                {% for i in skill|skill_level_range %}
+                                                    <i class="fas fa-star text-warning"></i>
+                                                {% endfor %}
+                                                {% for i in skill|skill_level_remaining %}
+                                                    <i class="far fa-star text-muted"></i>
+                                                {% endfor %}
+                                            </span>
+                                        </div>
+                                        <small class="text-muted">{{ skill.get_proficiency_level_display }}</small>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="text-center">
+                        <p>No soft skills added yet.</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Skills Overview Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Skills Overview</h2>
+        <div class="row">
+            <div class="col-lg-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-laptop-code fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Frontend Development</h5>
+                        <p>HTML5, CSS3, JavaScript, React, Vue.js, Bootstrap, Tailwind CSS</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-server fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Backend Development</h5>
+                        <p>Python, Django, Node.js, Express, REST APIs, Database Design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-tools fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Tools & Technologies</h5>
+                        <p>Git, Docker, AWS, CI/CD, Agile/Scrum, Testing Frameworks</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Proficiency Legend -->
+<section class="section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 mx-auto">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Proficiency Levels</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="me-3"><i class="fas fa-star text-warning"></i></span>
+                                <span>Beginner - Basic understanding and limited experience</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="me-3"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                                <span>Intermediate - Comfortable with independent work</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex align-items-center">
+                                <span class="me-3"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                                <span>Advanced - Strong expertise and complex problem-solving</span>
+                            </div>
+                        </div>
+                        <div class="mb-0">
+                            <div class="d-flex align-items-center">
+                                <span class="me-3"><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i></span>
+                                <span>Expert - Mastery level, can teach and lead others</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section section-alt">
+    <div class="container text-center">
+        <h2 class="section-title">Interested in Working Together?</h2>
+        <p class="lead mb-4">I'm always excited to take on new challenges and collaborate on interesting projects.</p>
+        <a href="{% url 'contact' %}" class="btn-custom btn-lg">Let's Discuss Your Project</a>
+    </div>
+</section>
+{% endblock %}

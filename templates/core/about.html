@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}About - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 text-center text-lg-start">
+                <div class="hero-content">
+                    {% if about.profile_photo %}
+                        <img src="{{ about.profile_photo.url }}" alt="{{ about.name }}" class="profile-img mx-auto mx-lg-0">
+                    {% else %}
+                        <img src="{% static 'images/default-profile.svg' %}" alt="Profile" class="profile-img mx-auto mx-lg-0">
+                    {% endif %}
+                    <h1>{{ about.name|default:"Your Name" }}</h1>
+                    <p class="tagline">{{ about.tagline|default:"Full Stack Developer | Creative Problem Solver" }}</p>
+                    
+                    <!-- Social Links -->
+                    {% if about.linkedin or about.github or about.twitter %}
+                        <div class="social-links justify-content-center justify-content-lg-start">
+                            {% if about.linkedin %}
+                                <a href="{{ about.linkedin }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="LinkedIn">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            {% endif %}
+                            {% if about.github %}
+                                <a href="{{ about.github }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="GitHub">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            {% endif %}
+                            {% if about.twitter %}
+                                <a href="{{ about.twitter }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="Twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h2 class="text-white">Hello, I'm {{ about.name|default:"Your Name" }}</h2>
+                    <p class="lead text-white">{{ about.tagline|default:"Full Stack Developer | Creative Problem Solver" }}</p>
+                    <p class="text-white">{{ about.personal_background|default:"Welcome to my portfolio! I'm a passionate developer with expertise in creating innovative digital solutions. I love turning complex problems into simple, beautiful, and intuitive solutions." }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Personal Background Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Personal Background</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="lead">{{ about.personal_background|default:"I am a dedicated and passionate developer with a strong foundation in web development and a keen eye for design. My journey in technology began with a curiosity about how things work on the internet, and it has evolved into a career focused on creating meaningful digital experiences." }}</p>
+                        
+                        <h4>My Story</h4>
+                        <p>{{ about.personal_background|default:"Throughout my career, I've had the opportunity to work on diverse projects that have challenged me to grow both technically and creatively. I believe in writing clean, maintainable code and creating user interfaces that are both functional and aesthetically pleasing. My approach to problem-solving involves understanding the user's needs and finding innovative solutions that exceed expectations." }}</p>
+                        
+                        <h4>Values & Philosophy</h4>
+                        <ul>
+                            <li><strong>Continuous Learning:</strong> I stay updated with the latest technologies and best practices in web development.</li>
+                            <li><strong>User-Centric Design:</strong> I believe in creating solutions that prioritize user experience and accessibility.</li>
+                            <li><strong>Collaboration:</strong> I enjoy working with teams and believe that great products are built through collaboration.</li>
+                            <li><strong>Quality Code:</strong> I write clean, efficient, and maintainable code that follows industry standards.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Career Goals Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Career Goals & Aspirations</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="lead">{{ about.career_goals|default:"I am passionate about leveraging technology to solve real-world problems and create impactful digital solutions. My career goals are focused on continuous growth and innovation in the field of web development." }}</p>
+                        
+                        <div class="row mt-4">
+                            <div class="col-md-6 mb-4">
+                                <div class="text-center">
+                                    <i class="fas fa-rocket fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                                    <h5>Short-term Goals</h5>
+                                    <p>{{ about.career_goals|default:"Expand my expertise in modern web frameworks, contribute to open-source projects, and work on challenging projects that push my technical boundaries."|truncatewords:20 }}</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 mb-4">
+                                <div class="text-center">
+                                    <i class="fas fa-bullseye fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                                    <h5>Long-term Vision</h5>
+                                    <p>{{ about.career_goals|default:"Lead development teams, mentor junior developers, and create innovative solutions that make a positive impact on people's lives."|truncatewords:20 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="mt-4">Areas of Interest</h4>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <div class="skill-item">
+                                    <h6><i class="fas fa-mobile-alt me-2"></i>Web Development</h6>
+                                    <p class="mb-0">Building responsive and interactive web applications</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="skill-item">
+                                    <h6><i class="fas fa-paint-brush me-2"></i>UI/UX Design</h6>
+                                    <p class="mb-0">Creating intuitive and beautiful user interfaces</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="skill-item">
+                                    <h6><i class="fas fa-cloud me-2"></i>Cloud Technologies</h6>
+                                    <p class="mb-0">Exploring cloud-based solutions and deployments</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="section">
+    <div class="container text-center">
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="lead mb-4">I'm always open to discussing new opportunities, creative ideas, or potential collaborations.</p>
+        <div class="row">
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-envelope fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                        <h5>Email</h5>
+                        <p>{{ about.email|default:"your.email@example.com" }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fab fa-linkedin fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                        <h5>LinkedIn</h5>
+                        <p><a href="{{ about.linkedin|default:'#' }}" target="_blank">Connect with me</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fab fa-github fa-2x mb-2" style="color: var(--secondary-color);"></i>
+                        <h5>GitHub</h5>
+                        <p><a href="{{ about.github|default:'#' }}" target="_blank">View my work</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <a href="{% url 'contact' %}" class="btn-custom btn-lg">Get In Touch</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

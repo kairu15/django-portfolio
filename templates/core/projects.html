@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Projects - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1>My Projects</h1>
+            <p class="tagline">A showcase of my work and technical achievements</p>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        
+        {% if projects %}
+            <div class="row">
+                {% for project in projects %}
+                    <div class="col-lg-6 mb-4">
+                        <div class="card project-card">
+                            {% if project.featured_image %}
+                                <img src="{{ project.featured_image.url }}" class="card-img-top project-img" alt="{{ project.title }}">
+                            {% else %}
+                                <img src="{% static 'images/default-project.svg' %}" class="card-img-top project-img" alt="Project">
+                            {% endif %}
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="project-title mb-0">{{ project.title }}</h5>
+                                    {% if project.featured %}
+                                        <span class="badge bg-warning text-dark">Featured</span>
+                                    {% endif %}
+                                </div>
+                                <p class="card-text">{{ project.description }}</p>
+                                
+                                {% if project.technologies %}
+                                    <div class="project-tech">
+                                        {% for tech in project.get_technologies_list %}
+                                            <span class="tech-tag">{{ tech }}</span>
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                                
+                                {% if project.completion_date %}
+                                    <p class="text-muted small mb-3">
+                                        <i class="fas fa-calendar me-1"></i>
+                                        Completed: {{ project.completion_date|date:"F Y" }}
+                                    </p>
+                                {% endif %}
+                                
+                                <div class="project-links">
+                                    {% if project.github_link %}
+                                        <a href="{{ project.github_link }}" target="_blank" class="btn-custom btn-sm">
+                                            <i class="fab fa-github me-1"></i>GitHub
+                                        </a>
+                                    {% endif %}
+                                    {% if project.live_demo %}
+                                        <a href="{{ project.live_demo }}" target="_blank" class="btn-outline-custom btn-sm">
+                                            <i class="fas fa-external-link-alt me-1"></i>Live Demo
+                                        </a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-folder-open fa-4x mb-3" style="color: var(--secondary-color);"></i>
+                        <h4>No Projects Yet</h4>
+                        <p class="text-muted">Projects will be added here soon. Check back later!</p>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Project Categories -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Project Categories</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Web Applications</h5>
+                        <p>Full-stack web applications with modern frameworks and responsive design</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-mobile-alt fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Mobile Apps</h5>
+                        <p>Mobile-first applications with intuitive user interfaces</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-cogs fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>API Development</h5>
+                        <p>RESTful APIs and backend services for modern applications</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Development Process -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">My Development Process</h2>
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 60px; height: 60px;">
+                            <i class="fas fa-lightbulb fa-2x"></i>
+                        </div>
+                    </div>
+                    <h5>1. Discovery</h5>
+                    <p>Understanding requirements and defining project scope</p>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 60px; height: 60px;">
+                            <i class="fas fa-pencil-ruler fa-2x"></i>
+                        </div>
+                    </div>
+                    <h5>2. Design</h5>
+                    <p>Creating wireframes and user interface designs</p>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 60px; height: 60px;">
+                            <i class="fas fa-code fa-2x"></i>
+                        </div>
+                    </div>
+                    <h5>3. Development</h5>
+                    <p>Writing clean, efficient code and implementing features</p>
+                </div>
+            </div>
+            <div class="col-lg-3 mb-4">
+                <div class="text-center">
+                    <div class="mb-3">
+                        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-primary text-white" style="width: 60px; height: 60px;">
+                            <i class="fas fa-rocket fa-2x"></i>
+                        </div>
+                    </div>
+                    <h5>4. Deployment</h5>
+                    <p>Testing, optimization, and launching the application</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Used -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Technologies I Work With</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-code me-2"></i>Frontend</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Bootstrap</span>
+                            <span class="tech-tag">Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-server me-2"></i>Backend</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Express</span>
+                            <span class="tech-tag">REST APIs</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-tools me-2"></i>Tools</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">Webpack</span>
+                            <span class="tech-tag">Jest</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0"><i class="fas fa-paint-brush me-2"></i>Design</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="tech-tag">Figma</span>
+                            <span class="tech-tag">Adobe XD</span>
+                            <span class="tech-tag">Photoshop</span>
+                            <span class="tech-tag">Illustrator</span>
+                            <span class="tech-tag">Responsive Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section">
+    <div class="container text-center">
+        <h2 class="section-title">Have a Project in Mind?</h2>
+        <p class="lead mb-4">I'm always excited to work on new and challenging projects. Let's discuss how I can help bring your ideas to life.</p>
+        <a href="{% url 'contact' %}" class="btn-custom btn-lg">Start Your Project</a>
+    </div>
+</section>
+{% endblock %}

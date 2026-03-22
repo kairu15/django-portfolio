@@ -1,0 +1,247 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact - Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container text-center">
+        <div class="hero-content">
+            <h1>Get In Touch</h1>
+            <p class="tagline">Let's discuss your project or collaboration opportunities</p>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="row">
+            <div class="col-lg-8 mb-4">
+                <div class="contact-form">
+                    <h4 class="mb-4">Send Me a Message</h4>
+                    <form method="post" id="contactForm">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="name" class="form-label">Your Name *</label>
+                                <input type="text" class="form-control" id="name" name="name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="email" class="form-label">Your Email *</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-4">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-custom btn-lg">
+                            <i class="fas fa-paper-plane me-2"></i>Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="contact-info">
+                    <h4 class="mb-4">Contact Information</h4>
+                    
+                    {% if about.email %}
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>{{ about.email }}</span>
+                        </div>
+                    {% endif %}
+                    
+                    {% if about.linkedin %}
+                        <div class="contact-item">
+                            <i class="fab fa-linkedin"></i>
+                            <a href="{{ about.linkedin }}" target="_blank" class="text-white">LinkedIn Profile</a>
+                        </div>
+                    {% endif %}
+                    
+                    {% if about.github %}
+                        <div class="contact-item">
+                            <i class="fab fa-github"></i>
+                            <a href="{{ about.github }}" target="_blank" class="text-white">GitHub Profile</a>
+                        </div>
+                    {% endif %}
+                    
+                    {% if about.twitter %}
+                        <div class="contact-item">
+                            <i class="fab fa-twitter"></i>
+                            <a href="{{ about.twitter }}" target="_blank" class="text-white">Twitter Profile</a>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="mt-4">
+                        <h5>Response Time</h5>
+                        <p>I typically respond to messages within 24-48 hours. For urgent inquiries, please mention it in your message.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Additional Information Section -->
+<section class="section section-alt">
+    <div class="container">
+        <h2 class="section-title">Let's Work Together</h2>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-handshake fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Collaborations</h5>
+                        <p>I'm open to collaborating on exciting projects and innovative ideas. Let's create something amazing together.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-briefcase fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Job Opportunities</h5>
+                        <p>Interested in full-time or contract opportunities. Feel free to reach out with potential roles.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-comments fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Just Say Hi</h5>
+                        <p>Always happy to connect with fellow developers and tech enthusiasts. Don't hesitate to say hello!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section">
+    <div class="container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                                What types of projects do you typically work on?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                I work on a variety of projects including web applications, mobile apps, API development, and UI/UX design. I'm comfortable with both frontend and backend development and enjoy full-stack projects.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                                What is your typical availability for new projects?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                My availability varies depending on current commitments. I typically have capacity for 1-2 new projects at a time. Please reach out with your project details, and I'll let you know my current availability and timeline.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                                Do you offer consulting services?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, I offer consulting services for technical architecture, code reviews, and project planning. I can help you make informed decisions about technology choices and development strategies.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                                How do you handle project pricing?
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Pricing depends on project complexity, timeline, and scope. I offer both fixed-price and hourly rate options. Contact me with your project details for a customized quote.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Location Section -->
+<section class="section section-alt">
+    <div class="container text-center">
+        <h2 class="section-title">Location & Availability</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Remote Work</h5>
+                        <p>I'm available for remote collaborations worldwide and have experience working with distributed teams across different time zones.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <i class="fas fa-clock fa-3x mb-3" style="color: var(--secondary-color);"></i>
+                        <h5>Flexible Hours</h5>
+                        <p>I maintain flexible working hours to accommodate different time zones and project requirements. Quick response guaranteed during business hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Links Section -->
+<section class="section">
+    <div class="container text-center">
+        <h2 class="section-title">Connect on Social Media</h2>
+        <p class="lead mb-4">Follow me on social platforms for updates and tech insights</p>
+        <div class="social-links justify-content-center">
+            {% if about.linkedin %}
+                <a href="{{ about.linkedin }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            {% endif %}
+            {% if about.github %}
+                <a href="{{ about.github }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+            {% endif %}
+            {% if about.twitter %}
+                <a href="{{ about.twitter }}" target="_blank" class="social-link" data-bs-toggle="tooltip" title="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            {% endif %}
+            <a href="#" class="social-link" data-bs-toggle="tooltip" title="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" data-bs-toggle="tooltip" title="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
