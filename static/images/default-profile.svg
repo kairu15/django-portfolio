@@ -1,9 +1,6 @@
-<!-- Placeholder for default profile image -->
-<!-- This would be replaced with an actual image file -->
-<!-- For now, we'll use a simple SVG placeholder as a data URI -->
-<svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
-  <rect width="250" height="250" fill="#1a3a52"/>
-  <circle cx="125" cy="100" r="40" fill="#d4af37"/>
-  <ellipse cx="125" cy="180" rx="60" ry="40" fill="#d4af37"/>
-  <text x="125" y="220" text-anchor="middle" fill="white" font-family="Arial" font-size="14">Profile Photo</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <rect width="200" height="200" fill="#f8f9fa"/>
+  <circle cx="100" cy="80" r="35" fill="#6c757d"/>
+  <ellipse cx="100" cy="160" rx="60" ry="35" fill="#6c757d"/>
+  <text x="100" y="195" text-anchor="middle" fill="#6c757d" font-family="Arial, sans-serif" font-size="12">Profile Photo</text>
 </svg>
