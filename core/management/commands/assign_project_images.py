@@ -84,12 +84,12 @@ class Command(BaseCommand):
             },
             'Learning Management System': {
                 'title': 'Learning Management System',
-                'description': 'An online learning platform with course management, student tracking, and assessment tools.',
-                'technologies': 'Python, Django, React, PostgreSQL, REST API',
+                'description': 'A web-based Learning Management System built using PHP. It includes features such as user registration, login, course management, and content delivery. This project showcases my skills in backend development and database integration.',
+                'technologies': 'PHP, MySQL, HTML, CSS, JavaScript, Bootstrap',
                 'github_link': 'https://github.com/example/lms',
                 'live_demo': 'https://lms-demo.example.com',
                 'featured': True,
-                'completion_date': '2024-02-20'
+                'completion_date': '2025-03-10'
             },
             'Voting System': {
                 'title': 'Voting System',
