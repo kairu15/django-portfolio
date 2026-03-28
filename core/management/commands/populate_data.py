@@ -157,7 +157,7 @@ class Command(BaseCommand):
         education_data = [
             {
                 'school': 'University of Technology',
-                'degree': 'Bachelor of Science in Computer Science',
+                'degree': 'Bachelor of Science in Information Technology',
                 'start_year': 2016,
                 'end_year': 2020,
                 'description': 'Graduated with honors. Focus on software engineering, algorithms, and database systems. Active member of the coding club and participated in hackathons.'
