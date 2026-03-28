@@ -93,11 +93,11 @@ class Command(BaseCommand):
             },
             'Voting System': {
                 'title': 'Voting System',
-                'description': 'A secure online voting system with user authentication, real-time results, and administrative controls.',
-                'technologies': 'Python, Django, JavaScript, SQLite, Bootstrap',
+                'description': 'A console-based voting system developed using C++. It allows users to cast votes, count results, and display winners efficiently. This project demonstrates basic programming logic, data handling, and user interaction in C++.',
+                'technologies': 'C++, Console Application, Data Structures, Algorithms',
                 'github_link': 'https://github.com/example/voting-system',
                 'live_demo': 'https://voting-demo.example.com',
-                'featured': False,
+                'featured': True,
                 'completion_date': '2024-03-10'
             }
         }
